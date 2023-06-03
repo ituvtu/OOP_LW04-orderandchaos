@@ -1,0 +1,10 @@
+C:\Users\ivan3\source\repos\OOP-LW04-ordnchs\x64\Debug\OOP_LW04-orderandchaos.vcxproj.AssemblyReference.cache
+C:\Users\ivan3\source\repos\OOP-LW04-ordnchs\x64\Debug\OOP_LW04-orderandchaos.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\ivan3\source\repos\OOP-LW04-ordnchs\x64\Debug\OOPLW04orderandchaos.ORDNCHS.resources
+C:\Users\ivan3\source\repos\OOP-LW04-ordnchs\x64\Debug\OOP_LW04-orderandchaos.vcxproj.GenerateResource.cache
+C:\Users\ivan3\source\repos\OOP-LW04-ordnchs\x64\Debug\OOP_LW04-orderandchaos.exe
+C:\Users\ivan3\source\repos\OOP-LW04-ordnchscopy\x64\Debug\OOP_LW04-orderandchaos.vcxproj.AssemblyReference.cache
+C:\Users\ivan3\source\repos\OOP-LW04-ordnchscopy\x64\Debug\OOP_LW04-orderandchaos.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\ivan3\source\repos\OOP-LW04-ordnchscopy\x64\Debug\OOPLW04orderandchaos.ORDNCHS.resources
+C:\Users\ivan3\source\repos\OOP-LW04-ordnchscopy\x64\Debug\OOP_LW04-orderandchaos.vcxproj.GenerateResource.cache
+C:\Users\ivan3\source\repos\OOP-LW04-ordnchscopy\x64\Debug\OOP_LW04-orderandchaos.exe
