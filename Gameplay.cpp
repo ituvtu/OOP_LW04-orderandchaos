@@ -1,4 +1,4 @@
-#include "Gameplay.h"
+п»ї#include "Gameplay.h"
 #include <iostream>
 #include "ORDNCHS.h"
 
@@ -8,7 +8,7 @@ GameResult Gameplay::CheckWin(int rowIndex, int colIndex)
     int count = 0;
     int row=0, col=0;
 
-    // Проверка горизонтальных линий
+    // РџСЂРѕРІРµСЂРєР° РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹С… Р»РёРЅРёР№
     count = 0;
     for (col = 0; col < 6; col++)
     {
@@ -21,7 +21,7 @@ GameResult Gameplay::CheckWin(int rowIndex, int colIndex)
             return GameResult::OrderWin;
     }
 
-    // Проверка вертикальных линий
+    // РџСЂРѕРІРµСЂРєР° РІРµСЂС‚РёРєР°Р»СЊРЅС‹С… Р»РёРЅРёР№
     count = 0;
     for (row = 0; row < 6; row++)
     {
@@ -34,7 +34,7 @@ GameResult Gameplay::CheckWin(int rowIndex, int colIndex)
             return GameResult::OrderWin;
     }
 
-    // Проверка прямых диагоналей
+    // РџСЂРѕРІРµСЂРєР° РїСЂСЏРјС‹С… РґРёР°РіРѕРЅР°Р»РµР№
     count = 0;
     row = rowIndex;
     col = colIndex;
@@ -58,7 +58,7 @@ GameResult Gameplay::CheckWin(int rowIndex, int colIndex)
         col++;
     }
 
-    // Проверка обратных диагоналей
+    // РџСЂРѕРІРµСЂРєР° РѕР±СЂР°С‚РЅС‹С… РґРёР°РіРѕРЅР°Р»РµР№
     count = 0;
     row = rowIndex;
     col = colIndex;
@@ -88,7 +88,7 @@ GameResult Gameplay::CheckWin(int rowIndex, int colIndex)
         for (col = 0; col < 6; col++)
         {
             if (IsEmpty(row, col))
-                return GameResult::Continue; // Есть доступный ход, игра продолжается
+                return GameResult::Continue; // Р•СЃС‚СЊ РґРѕСЃС‚СѓРїРЅС‹Р№ С…РѕРґ, РёРіСЂР° РїСЂРѕРґРѕР»Р¶Р°РµС‚СЃСЏ
         }
     }
 
@@ -99,12 +99,12 @@ void Gameplay::Winner(int rowIndex, int colIndex) {
 
     if (win == GameResult::OrderWin) {
 
-        System::Windows::Forms::MessageBox::Show("Гравець 1 (Порядок) переміг!");
+        System::Windows::Forms::MessageBox::Show("Р“СЂР°РІРµС†СЊ 1 (РџРѕСЂСЏРґРѕРє) РїРµСЂРµРјС–Рі!");
         NewGame();
     }
     else if (win == GameResult::ChaosWin) {
 
-        System::Windows::Forms::MessageBox::Show("Гравець 2 (Хаос) переміг!");
+        System::Windows::Forms::MessageBox::Show("Р“СЂР°РІРµС†СЊ 2 (РҐР°РѕСЃ) РїРµСЂРµРјС–Рі!");
         NewGame();
     }
 }

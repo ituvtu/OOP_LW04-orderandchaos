@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "Gameplay.h"
 using namespace System;
 using namespace System::ComponentModel;
@@ -9,24 +9,24 @@ using namespace System::Drawing;
 using namespace std;
 using namespace cli;
 
-// Клас головної форми гри
+// РљР»Р°СЃ РіРѕР»РѕРІРЅРѕС— С„РѕСЂРјРё РіСЂРё
 public ref class ORDNCHS : public System::Windows::Forms::Form
 {
 private:
-	// Перерахування для теми
+	// РџРµСЂРµСЂР°С…СѓРІР°РЅРЅСЏ РґР»СЏ С‚РµРјРё
 	enum class Theme
 	{
 		Light,
 		Dark
 	};
 
-	Panel^ panel1; // Панель для гри
-	Label^ turnLabel; // Надпис з інформацією про поточний хід
-	Theme currenttheme = Theme::Dark; // Поточна тема гри
-	Button^ themebutton; // Кнопка для зміни теми
-	MenuStrip^ menuStrip1; // Меню
-	ToolStripMenuItem^ початиСпочаткуToolStripMenuItem; // Пункт меню "Почати спочатку"
-	ToolStripMenuItem^ покинутиГруToolStripMenuItem; // Пункт меню "Покинути гру"
+	Panel^ panel1; // РџР°РЅРµР»СЊ РґР»СЏ РіСЂРё
+	Label^ turnLabel; // РќР°РґРїРёСЃ Р· С–РЅС„РѕСЂРјР°С†С–С”СЋ РїСЂРѕ РїРѕС‚РѕС‡РЅРёР№ С…С–Рґ
+	Theme currenttheme = Theme::Dark; // РџРѕС‚РѕС‡РЅР° С‚РµРјР° РіСЂРё
+	Button^ themebutton; // РљРЅРѕРїРєР° РґР»СЏ Р·РјС–РЅРё С‚РµРјРё
+	MenuStrip^ menuStrip1; // РњРµРЅСЋ
+	ToolStripMenuItem^ РїРѕС‡Р°С‚РёРЎРїРѕС‡Р°С‚РєСѓToolStripMenuItem; // РџСѓРЅРєС‚ РјРµРЅСЋ "РџРѕС‡Р°С‚Рё СЃРїРѕС‡Р°С‚РєСѓ"
+	ToolStripMenuItem^ РїРѕРєРёРЅСѓС‚РёР“СЂСѓToolStripMenuItem; // РџСѓРЅРєС‚ РјРµРЅСЋ "РџРѕРєРёРЅСѓС‚Рё РіСЂСѓ"
 
 public:
 	Panel^ ORDNCHS::GetPanel()
@@ -34,12 +34,12 @@ public:
 		return panel1;
 	}
 
-	// Конструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	ORDNCHS(void)
 	{
 		InitializeComponent();
 
-		// Ініціалізація панелі гри
+		// Р†РЅС–С†С–Р°Р»С–Р·Р°С†С–СЏ РїР°РЅРµР»С– РіСЂРё
 		panel1 = gcnew Panel();
 		panel1->Size = Drawing::Size(301, 301);
 		int centerX = (this->ClientSize.Width - panel1->Size.Width) / 2;
@@ -50,15 +50,15 @@ public:
 		panel1->MouseClick += gcnew MouseEventHandler(this, &ORDNCHS::gamepanel_MouseClick);
 		panel1->BackColor = Color::SlateGray;
 
-		// Ініціалізація надпису про поточний хід
+		// Р†РЅС–С†С–Р°Р»С–Р·Р°С†С–СЏ РЅР°РґРїРёСЃСѓ РїСЂРѕ РїРѕС‚РѕС‡РЅРёР№ С…С–Рґ
 		turnLabel = gcnew Label();
-		turnLabel->Text = "Зараз ходить Гравець 1 (Порядок)";
+		turnLabel->Text = "Р—Р°СЂР°Р· С…РѕРґРёС‚СЊ Р“СЂР°РІРµС†СЊ 1 (РџРѕСЂСЏРґРѕРє)";
 		turnLabel->ForeColor = Color::White;
-		turnLabel->Dock = DockStyle::Bottom; // Розміщення надпису над панеллю
+		turnLabel->Dock = DockStyle::Bottom; // Р РѕР·РјС–С‰РµРЅРЅСЏ РЅР°РґРїРёСЃСѓ РЅР°Рґ РїР°РЅРµР»Р»СЋ
 		this->Controls->Add(turnLabel);
 	}
 
-	// Функція для зміни теми
+	// Р¤СѓРЅРєС†С–СЏ РґР»СЏ Р·РјС–РЅРё С‚РµРјРё
 	void Switch_theme()
 	{
 		if (currenttheme == Theme::Light)
@@ -77,21 +77,21 @@ public:
 		}
 	}
 
-	// Функція для оновлення надпису про поточний хід
+	// Р¤СѓРЅРєС†С–СЏ РґР»СЏ РѕРЅРѕРІР»РµРЅРЅСЏ РЅР°РґРїРёСЃСѓ РїСЂРѕ РїРѕС‚РѕС‡РЅРёР№ С…С–Рґ
 	void PlayerTurn(Gameplay gameplay)
 	{
 		if (gameplay.GetTurn())
 		{
-			turnLabel->Text = "Зараз ходить Гравець 1 (Порядок)";
+			turnLabel->Text = "Р—Р°СЂР°Р· С…РѕРґРёС‚СЊ Р“СЂР°РІРµС†СЊ 1 (РџРѕСЂСЏРґРѕРє)";
 		}
 		else
 		{
-			turnLabel->Text = "Зараз ходить Гравець 2 (Хаос)";
+			turnLabel->Text = "Р—Р°СЂР°Р· С…РѕРґРёС‚СЊ Р“СЂР°РІРµС†СЊ 2 (РҐР°РѕСЃ)";
 		}
 	}
 
 protected:
-	// Деструктор
+	// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	~ORDNCHS()
 	{
 		if (components)
@@ -103,14 +103,14 @@ protected:
 private:
 	System::ComponentModel::Container^ components;
 
-	// Метод, створений автоматично дизайнером Windows Form
+	// РњРµС‚РѕРґ, СЃС‚РІРѕСЂРµРЅРёР№ Р°РІС‚РѕРјР°С‚РёС‡РЅРѕ РґРёР·Р°Р№РЅРµСЂРѕРј Windows Form
 #pragma region Windows Form Designer generated code
 	void InitializeComponent(void)
 	{
 		this->themebutton = (gcnew System::Windows::Forms::Button());
 		this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-		this->початиСпочаткуToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-		this->покинутиГруToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+		this->РїРѕС‡Р°С‚РёРЎРїРѕС‡Р°С‚РєСѓToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+		this->РїРѕРєРёРЅСѓС‚РёР“СЂСѓToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->menuStrip1->SuspendLayout();
 		this->SuspendLayout();
 		// 
@@ -130,8 +130,8 @@ private:
 		// menuStrip1
 		// 
 		this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-			this->початиСпочаткуToolStripMenuItem,
-				this->покинутиГруToolStripMenuItem
+			this->РїРѕС‡Р°С‚РёРЎРїРѕС‡Р°С‚РєСѓToolStripMenuItem,
+				this->РїРѕРєРёРЅСѓС‚РёР“СЂСѓToolStripMenuItem
 		});
 		this->menuStrip1->Location = System::Drawing::Point(0, 0);
 		this->menuStrip1->Name = L"menuStrip1";
@@ -139,20 +139,20 @@ private:
 		this->menuStrip1->TabIndex = 1;
 		this->menuStrip1->Text = L"menuStrip1";
 		// 
-		// початиСпочаткуToolStripMenuItem
+		// РїРѕС‡Р°С‚РёРЎРїРѕС‡Р°С‚РєСѓToolStripMenuItem
 		// 
-		this->початиСпочаткуToolStripMenuItem->Name = L"початиСпочаткуToolStripMenuItem";
-		this->початиСпочаткуToolStripMenuItem->Size = System::Drawing::Size(113, 20);
-		this->початиСпочаткуToolStripMenuItem->Text = L"Почати спочатку";
-		this->початиСпочаткуToolStripMenuItem->Click += gcnew System::EventHandler(this, &ORDNCHS::початиСпочаткуToolStripMenuItem_Click);
+		this->РїРѕС‡Р°С‚РёРЎРїРѕС‡Р°С‚РєСѓToolStripMenuItem->Name = L"РїРѕС‡Р°С‚РёРЎРїРѕС‡Р°С‚РєСѓToolStripMenuItem";
+		this->РїРѕС‡Р°С‚РёРЎРїРѕС‡Р°С‚РєСѓToolStripMenuItem->Size = System::Drawing::Size(113, 20);
+		this->РїРѕС‡Р°С‚РёРЎРїРѕС‡Р°С‚РєСѓToolStripMenuItem->Text = L"РџРѕС‡Р°С‚Рё СЃРїРѕС‡Р°С‚РєСѓ";
+		this->РїРѕС‡Р°С‚РёРЎРїРѕС‡Р°С‚РєСѓToolStripMenuItem->Click += gcnew System::EventHandler(this, &ORDNCHS::РїРѕС‡Р°С‚РёРЎРїРѕС‡Р°С‚РєСѓToolStripMenuItem_Click);
 
 		// 
-		// покинутиГруToolStripMenuItem
+		// РїРѕРєРёРЅСѓС‚РёР“СЂСѓToolStripMenuItem
 		// 
-		this->покинутиГруToolStripMenuItem->Name = L"покинутиГруToolStripMenuItem";
-		this->покинутиГруToolStripMenuItem->Size = System::Drawing::Size(94, 20);
-		this->покинутиГруToolStripMenuItem->Text = L"Покинути гру";
-		this->покинутиГруToolStripMenuItem->Click += gcnew System::EventHandler(this, &ORDNCHS::покинутиГруToolStripMenuItem_Click);
+		this->РїРѕРєРёРЅСѓС‚РёР“СЂСѓToolStripMenuItem->Name = L"РїРѕРєРёРЅСѓС‚РёР“СЂСѓToolStripMenuItem";
+		this->РїРѕРєРёРЅСѓС‚РёР“СЂСѓToolStripMenuItem->Size = System::Drawing::Size(94, 20);
+		this->РїРѕРєРёРЅСѓС‚РёР“СЂСѓToolStripMenuItem->Text = L"РџРѕРєРёРЅСѓС‚Рё РіСЂСѓ";
+		this->РїРѕРєРёРЅСѓС‚РёР“СЂСѓToolStripMenuItem->Click += gcnew System::EventHandler(this, &ORDNCHS::РїРѕРєРёРЅСѓС‚РёР“СЂСѓToolStripMenuItem_Click);
 
 		// 
 		// ORDNCHS
@@ -176,11 +176,11 @@ private:
 	}
 #pragma endregion	
 private:
-	// Методи, що відповідають за події елементів управління
+	// РњРµС‚РѕРґРё, С‰Рѕ РІС–РґРїРѕРІС–РґР°СЋС‚СЊ Р·Р° РїРѕРґС–С— РµР»РµРјРµРЅС‚С–РІ СѓРїСЂР°РІР»С–РЅРЅСЏ
 	Void gamepanel_Paint(Object^ sender, PaintEventArgs^ e);
 	Void gamepanel_MouseClick(Object^ sender, MouseEventArgs^ e);
 	void ORDNCHS::SwitchTheme(Object^ sender, EventArgs^ e);
-	Void початиСпочаткуToolStripMenuItem_Click(Object^ sender, EventArgs^ e);
-	Void покинутиГруToolStripMenuItem_Click(Object^ sender, EventArgs^ e);
+	Void РїРѕС‡Р°С‚РёРЎРїРѕС‡Р°С‚РєСѓToolStripMenuItem_Click(Object^ sender, EventArgs^ e);
+	Void РїРѕРєРёРЅСѓС‚РёР“СЂСѓToolStripMenuItem_Click(Object^ sender, EventArgs^ e);
 	Void ORDNCHS_Load(System::Object^ sender, System::EventArgs^ e);
 };
